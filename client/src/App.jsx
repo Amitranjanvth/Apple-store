@@ -1,9 +1,14 @@
 import React from 'react'
+import Navbar from './components/Navbar.jsx'
+import Hero from './components/Hero.jsx'
+import ProductViewer from './components/ProductViewer.jsx'  
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-3xl text-amber-300'>Amit Ranjan</h1>
+      <Navbar />
+      <Hero />
+      <ProductViewer />
     </div>
   )
 }
