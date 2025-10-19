@@ -1,10 +1,13 @@
 import React from 'react'
-import useMacBokStore from '../store'
+import useMacBokStore from "../store"
 import clsx from 'clsx';
 import {Canvas} from "@react-three/fiber";
 import {Box, OrbitControls} from "@react-three/drei";
-import MacbookModel16 from '../models/Macbook-16';
-import MacbookModel14 from '../models/Macbook-14';
+
+import MacbookModel14 from "../models/Macbook-14.jsx";
+import StudioLight from "./three/StudioLight.jsx";
+import { Texture } from 'three';
+import ModelSwitcher from './three/ModelSwitcher.jsx'
 
 const ProductViewer = () => {
 
@@ -42,9 +45,12 @@ const ProductViewer = () => {
           </div>
         </div>
         <Canvas id='canvas' camera= {{position: [0, 0, 5],fov: 50, near: 0.1, far: 100}}>
-          <MacbookModel14 scale={0.06} position={[0,0,0]} />
+          <StudioLight />
+          <MacbookModel14 scale={0.06} position={[0,0,0]} >
+            <meshBasicMaterial map={Texture} />
+          </MacbookModel14>
      
-              <OrbitControls enableZoom={false} />
+              <ModelSwitcher scale={scale} isMobile={false} />
          
         </Canvas>
     </section>
